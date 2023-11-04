@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Grupos</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h2>Listado de Grupos</h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="grupo : ${grupos}">
+            <td th:text="${grupo.name}"></td>
+            <td>
+                <a class="btn btn-info" th:href="@{/agenda/grupos/{id}(id=${grupo.id})}">Ver</a>
+                <a class="btn btn-warning" th:href="@{/agenda/grupos/{id}/editar(id=${grupo.id})}">Editar</a>
+                <a class="btn btn-danger" th:href="@{/agenda/grupos/{id}/eliminar(id=${grupo.id})}">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-primary" th:href="@{/agenda/grupos/nuevo}">Nuevo Grupo</a>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
